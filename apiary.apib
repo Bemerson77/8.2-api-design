@@ -1,5 +1,5 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+
 
 # MajesticThai
 
@@ -17,61 +17,61 @@ Polls is a simple API allowing consumers to view polls and vote in them.
             
               
                     {
-                        "id": 1
+                        "id": 1,
                         "item": "Spring Rolls",
                         "description": "Crisp vegetarian spring rolls, thai sweet and sour sauce.",
                         "price": 5000,
                         "category": "Appetizers"
                     }, {
-                        "id": 2
+                        "id": 2,
                         "item": "Chicken Sa Tay",
                         "description": "Sliced chicken breast marinated in a misture of Thai sauce.",
                         "price": 6000,
                         "category": "Appetizers"
                     }, {
-                        "id": 3
+                        "id": 3,
                         "item": "Yin Yang",
                         "description": "Crisp wontons filled with cream cheese.",
                         "price": 8000,
                         "category": "Appetizers"
                     }, {
-                        "id": 4
+                        "id": 4,
                         "item": "Crisp Calamari",
                         "description": "Specially seasoned battered-fried calamari.",
                         "price": 3000,
                         "category": "Appetizers"
                     }, {
-                        "id": 5
+                        "id": 5,
                         "item": "Famous Pad Thai",
                         "description": "Choice of chicken or pork stir-fried with rice noodles.",
                         "price": 3000,
                         "category": "Entree"
                     }, {
-                        "id": 6
+                        "id": 6,
                         "item": "Thai Fried Rice",
                         "description": "Chicken or Beef stir-fried with jasmine rice.",
                         "price": 3000,
                         "category": "Entree"
                     }, {
-                        "id": 7
+                        "id": 7,
                         "item": "Soft Shell Crab",
                         "description": "Golden-fried soft shell crabs.",
                         "price": 3000,
                         "category": "Entree"
                     }, {
-                        "id": 8
+                        "id": 8,
                         "item": "Siam Catfish",
                         "description": "Specially seasoned battered-fried calamari.",
                         "price": 3000,
                         "category": "Entree"
                     }, {
-                        "id": 9
+                        "id": 9,
                         "item": "Sticky Rice",
                         "description": "Really sticky rice.",
                         "price": 3000,
                         "category": "Dessert"
                     }, {
-                        "id": 10
+                        "id": 10,
                         "item": "Green Tea Ice Cream",
                         "description": "Really cold green tea ice-cream, mmmmmmm.",
                         "price": 3000,
@@ -85,11 +85,11 @@ Polls is a simple API allowing consumers to view polls and vote in them.
         
         
 
-## Menu Item [/dishes/{id}]
+## Menu Item [/menu/{id}]
 
 + Parameters
 
-    + id (number) - ID of the Question in the form of an integer
+    + id (number) - ID of the menu in the form of an integer
 
 ### View a Menu Item [GET]
 
@@ -98,9 +98,65 @@ Polls is a simple API allowing consumers to view polls and vote in them.
 
 
                     {
-                        "id": 10
+                        "id": 10,
                         "item": "Green Tea Ice Cream",
                         "description": "Really cold green tea ice-cream, mmmmmmm.",
                         "price": 3000,
                         "category": "Dessert"
+                    }
+                    
+                    
+                    
+                    
+                    
+## Order Collection [/order]
+
+### Order List [GET]
+
++ Response 200 (application/json)
+
+            {    
+            
+                [
+            
+              
+                    {
+                        "id": 1,
+                        "username": "tiy_greenville",
+                        "time": "today",
+                        "total": 5000,
+                        "ordered": ["Spring Rolls", "Yin Yang", "Green Tea Ice Cream"]
+                    }, {
+                        "id": 2,
+                        "username": "brandonemerson",
+                        "time": "today",
+                        "total": 2000,
+                        "ordered": ["Chicken Sa Tay", "Sticky Rice"]
+                    },
+            
+            
+                ] 
+        
+            }   
+            
+          
+            
+## Order Item [/order/{id}]
+
++ Parameters
+
+    + id (number) - ID of the order in the form of an integer
+
+### View an Order Item [GET]
+
++ Response 200 (application/json)           
+
+
+
+                    {
+                        "id": 2,
+                        "username": "brandonemerson",
+                        "time": "today",
+                        "total": 2000,
+                        "ordered": ["Chicken Sa Tay", "Sticky Rice"]
                     }
